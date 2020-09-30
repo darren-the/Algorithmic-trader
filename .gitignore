@@ -1,0 +1,5 @@
+.vscode
+.venv
+__pycache__
+test_mavg.csv
+test_ochl.csv
