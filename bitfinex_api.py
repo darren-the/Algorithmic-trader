@@ -1,11 +1,8 @@
 import requests
 import time
-from progress import PBar
+from utils import *
 
 domain = "https://api-pub.bitfinex.com/v2/"
-
-tLength = {'1m': 60000, '5m': 300000, '15m': 900000, '30m': 1800000, '1h': 3600000, '3h': 10800000, '6h': 21600000, 
-    '12h': 43200000, '1D': 86400000, '7D': 604800000, '14D': 1209600000}
 
 def fetch_hist(symbol, timeframe, start, end):
     """
@@ -20,9 +17,9 @@ def fetch_hist(symbol, timeframe, start, end):
     """
 
     data = []
-    block_size = 10000
     pbar = PBar(num_candles(start, end, timeframe))
-
+    block_size = 10000
+    
     # Fetching data in blocks of size: 10000
     while start < end:
         time.sleep(1)
